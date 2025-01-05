@@ -6,7 +6,7 @@ const Navbar
     <>
         <Nav>
         <NavLink to="/" end>
-        <h1>Logo</h1>
+        <img src="..\public\asset\logo.svg" alt="logo" />
         </NavLink>
         <Bars />
         <NavMenu>

@@ -7,9 +7,10 @@ export const Nav = styled.nav`
     justify-content:space-between;
     height:auto;
     border-bottom: 1px solid cadetblue;
+    
 `
 export const NavLink = styled(Link)`
-  color: coral;
+  color: white;
   display: flex;
   align-items: center;
   justify-items: space-around;
