@@ -1,15 +1,34 @@
-import React from 'react'
-import {Nav, NavLink, Bars, NavMenu} from './NavbarElements'
+import React, {useState} from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons
+import {Nav, NavLink, Bars, NavMenu, CloseIcon, IconWrapper} from './NavbarElements'
+
 const Navbar
  = () => {
+  const [isOpen, setIsOpen] = useState(false); // Add state for the menu toggle
+
+const toggleMenu = () => {
+    setIsOpen(!isOpen); // Toggle menu state
+  };
   return (
     <>
         <Nav>
         <NavLink to="/" end>
-        <img src="..\public\asset\logo.svg" alt="logo" />
+        <img className='logo' src="/asset/logo.svg" alt="logo" />
         </NavLink>
-        <Bars />
-        <NavMenu>
+        
+        <IconWrapper>
+        {isOpen ? (
+          <CloseIcon onClick={toggleMenu}>
+            <FaTimes /> {/* Close (X) icon */}
+          </CloseIcon>
+        ) : (
+          <Bars onClick={toggleMenu}>
+            <FaBars /> {/* Hamburger menu icon */}
+          </Bars>
+        )}
+      </IconWrapper>
+        
+        <NavMenu className={isOpen ? 'active' : ''}>
         <NavLink to="/about"end className={({ isActive }) => (isActive ? 'active' : 'inactive')}>
         About
         </NavLink>

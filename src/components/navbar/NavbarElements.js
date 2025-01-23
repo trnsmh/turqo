@@ -6,8 +6,7 @@ export const Nav = styled.nav`
     display: flex;
     justify-content:space-between;
     height:auto;
-    border-bottom: 1px solid cadetblue;
-    
+    /* border-bottom: .5px solid cadetblue; */
 `
 export const NavLink = styled(Link)`
   color: white;
@@ -15,7 +14,7 @@ export const NavLink = styled(Link)`
   align-items: center;
   justify-items: space-around;
   text-decoration: none;
-  padding: 0 0.75rem;
+  padding: 0 1.5rem;
   height: 100%;
 
   &.active {
@@ -41,12 +40,48 @@ export const Bars = styled(FaBars)`
             cursor: pointer;
             } 
 `;
-export const NavMenu = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    @media screen and (max-width: 768px){
-        display: none;
-    }
+export const CloseIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 20;
+    color: white;
+  }
+`;
+
+export const IconWrapper = styled.div`
+  transition: transform 1s ease, opacity 1s ease;
+
+  &.hidden {
+    opacity: 0;
+    transform: rotate(90deg); /* Example animation when hidden */
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: rotate(0); /* Default state */
+  }
+`;
+export const NavMenu = styled.div`
+    display:flex;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+    display: ${({ className }) => (className === 'active' ? 'flex' : 'none')};
+    flex-direction: column;
+    width: 20%;
+    position: absolute; /* Prevent the menu from affecting layout */
+    top: 50px;
+    right: 0;
+    height:70%;
+    background-color: transparent; /* Adjust based on your design */
+    z-index: 10; /* Ensure it appears above other elements */
+  }
 `;

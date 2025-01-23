@@ -2,7 +2,9 @@ import React from 'react'
 
 const About= () => {
   return (
-    <div style={{display:'flex', justifyContent:'center', alignItems:'center',height:'90vh'}}>Best Screen Print</div>
+    <div style={{display:'flex', justifyContent:'center', alignItems:'center',height:'90vh', backgroundImage:'url(public/asset/light)'}}>
+      Best Screen Print
+      </div>
   )
 }
 
